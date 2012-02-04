@@ -5,7 +5,7 @@ use Test::Base;
 use FormValidator::Lite qw/JapaneseMore/;
 use CGI;
 
-plan tests => 12;
+plan tests => 1 * 5;
 
 filters {
     query    => [qw/eval/],
@@ -35,6 +35,7 @@ __END__
 --- query: { kanji => '漢字',  hoge => 'ひらがなひらがな', fuga => 'カタカナ', haga => 'asciii', hoga => 'ひらがなと  すぺえす'}
 --- rule
 (
+    kanji => [qw/KANJI/],
     hoge => [qw/KANJI/],
     fuga => [qw/KANJI/],
     hoga => [qw/KANJI/],
@@ -42,7 +43,26 @@ __END__
 );
 --- expected
 (
-    kanji => 0
+    kanji => 0,
+    hoge => 1,
+    fuga => 1,
+    hoga => 1,
+    haga => 1,
+)
+
+=== KIGOU 
+--- query: { kigou => '。、〆〒',  hoge => 'ひらがなひらがな', fuga => 'カタカナ', haga => 'asciii', hoga => 'ひらがなと  すぺえす'}
+--- rule
+(
+    kigou => [qw/KIGOU/],
+    hoge => [qw/KIGOU/],
+    fuga => [qw/KIGOU/],
+    hoga => [qw/KIGOU/],
+    haga => [qw/KIGOU/],
+);
+--- expected
+(
+    kigou => 0,
     hoge => 1,
     fuga => 1,
     hoga => 1,

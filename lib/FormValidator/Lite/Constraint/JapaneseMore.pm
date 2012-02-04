@@ -3,8 +3,8 @@ use strict;
 use warnings;
 use FormValidator::Lite::Constraint;
 
-rule 'ZENKAKUKIGOU' => sub { delsp($_) =~ /^\p{CJKSymbolsAndPunctuation}+$/  };
-rule 'KANJI'        => sub { delsp($_) =~ /^\p{CJKUnifiedIdeographs}+$/      };
+rule 'KIGOU' => sub { delsp($_) =~ /^\p{CJKSymbolsAndPunctuation}+$/  };
+rule 'KANJI' => sub { delsp($_) =~ /^\p{CJKUnifiedIdeographs}+$/      };
 
 1;
 __END__
@@ -17,13 +17,15 @@ FormValidator::Lite::Constraint::Japanese - constraints for Japanese
 
 =over 4
 
-=item ZENKAKUKIGOU 
+=item KIGOU 
 
-Check valid ZENKAKUKIGOU or not.
+Check valid KIGOU or not.
 
 =item KANJI 
 
 Check valid KANJI or not.
+
+=back
 
 =head1 AUTHOR
 
@@ -35,5 +37,3 @@ yamanaka hiroyuki E<lt>default {at} example.comE<gt>
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
-=cut
