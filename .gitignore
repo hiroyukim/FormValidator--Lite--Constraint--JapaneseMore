@@ -1,0 +1,9 @@
+Makefile
+blib/
+inc/
+*.sw[po]
+*.bak
+*.old
+Build
+pm_to_blib
+META.yml
