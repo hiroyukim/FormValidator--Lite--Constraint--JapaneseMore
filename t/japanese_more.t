@@ -5,7 +5,7 @@ use Test::Base;
 use FormValidator::Lite qw/JapaneseMore/;
 use CGI;
 
-plan tests => 1 * 5;
+plan tests => 2 * 5;
 
 filters {
     query    => [qw/eval/],

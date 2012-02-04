@@ -1,6 +1,7 @@
 package FormValidator::Lite::Constraint::JapaneseMore;
 use strict;
 use warnings;
+our $VERSION = '0.01';
 use FormValidator::Lite::Constraint;
 
 rule 'KIGOU' => sub { delsp($_) =~ /^\p{CJKSymbolsAndPunctuation}+$/  };
